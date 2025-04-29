@@ -1,16 +1,54 @@
 ---
-import Social from './Social.astro';
+import Social from "./Social.astro";
+
+const X_USERNAME = "p_droaraujo";
+const GH_USERNAME = "p-droaraujo";
 ---
 
 <footer>
-    <Social platform="twitter" username="ped_araujo" />
-    <Social platform="github" username="pedAraujo" />
+    <p class="footer-title">Find me on</p>
+    <div class="footer-links">
+        <p class="social-links">
+            <Social platform="twitter" username={X_USERNAME} />
+            <Social platform="github" username={GH_USERNAME} />
+        </p>
+    </div>
 </footer>
+<div class="footer-picture">
+    <a href="/">
+        <img
+            src="src/assets/images/robot_me.png"
+            alt="P-dro"
+            width="60"
+            height="60"
+            class="circular-image"
+        />
+    </a>
+</div>
 
 <style>
-  footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
+    footer {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        border-top: 1px solid;
+        border-color: #334051;
+        padding-top: 3rem;
+    }
+
+    .footer-wrapper {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .circular-image {
+        border-radius: 50%;
+        object-fit: cover;
+    }
 </style>

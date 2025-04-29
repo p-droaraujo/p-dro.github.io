@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
+
+const allPosts = Object.values(
+    import.meta.glob("./posts/*.md", { eager: true }),
+);
+const pageTitle = "Writing";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-    <h2>My awesome blog subtitle</h2>
-</BaseLayout>
+<BaseLayout pageTitle={pageTitle} />

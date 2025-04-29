@@ -1,0 +1,18 @@
+---
+
+---
+
+<h1>
+    <slot />
+</h1>
+
+<style>
+    h1:where(:not(:has(h1))) {
+        font-size: calc(1.35em + 0.55vw) !important;
+        font-weight: 500;
+        font-family: var(--font-content);
+        line-height: 1.2;
+        margin: 0 0 1rem 0;
+        letter-spacing: normal;
+    }
+</style>

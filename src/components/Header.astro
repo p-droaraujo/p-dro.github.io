@@ -1,11 +1,70 @@
 ---
-import Navigation from './Navigation.astro' 
-import Hamburger from './Hamburger.astro'
+import ThemeToggle from "./ThemeToggle.astro";
+
+const currentPath = Astro.url.pathname;
+const parentPages = ["/projects/", "/writing/"];
+
+const formattedPath = parentPages.some((parent) =>
+    currentPath.startsWith(parent),
+)
+    ? ` / ${currentPath.split("/")[1].charAt(0).toUpperCase() + currentPath.split("/")[1].slice(1)}`
+    : "";
+
+const HOME = "P-dro";
+const PROJECTS = "Projects";
+const ABOUT = "About";
 ---
 
 <header>
     <nav>
-        <Hamburger />
-        <Navigation />
+        <span class="home">
+            <a href="/"
+                >{HOME}<span class="current-path">{formattedPath}</span></a
+            >
+        </span>
+        <span class="nav-links">
+            <a href="/projects">{PROJECTS}</a>
+            <a href="/about">{ABOUT}</a>
+        </span>
+        <span class="theme-icon">
+            <ThemeToggle />
+        </span>
     </nav>
 </header>
+
+<style>
+    nav {
+        margin: 0 0 3em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .home {
+        display: flex;
+        flex: auto;
+        align-items: center;
+    }
+
+    .current-path {
+        opacity: 0.7;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        margin-left: auto;
+        margin-right: 2rem;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+        opacity: 0.7;
+    }
+</style>

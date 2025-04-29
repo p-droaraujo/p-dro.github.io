@@ -1,0 +1,35 @@
+:root {
+    --wrap-normal: 42.5rem;
+    /* ~680px */
+    --wrap-wide: 90%;
+
+    --font-content: -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, sans-serif;
+    --font-ui: var(--font-content);
+    --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", "IBM Plex Mono", "Roboto Mono", "DejaVu Sans Mono", "Liberation Mono", Menlo, Monaco, "Consolas", "Source Code Pro", monospace;
+}
+
+html {
+    background-color: #212934;
+    color: #ffffff;
+}
+
+html:not(.dark) {
+    background-color: #fef4e8;
+    color: #000000;
+}
+
+body {
+    width: min(var(--wrap-normal), var(--wrap-wide));
+    margin: 2vw auto 0 auto;
+    padding: 2rem 0 24rem;
+    overflow-x: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: var(--font-content);
+    line-height: var(--line-height);
+}
+
+.dark .nav-links .footer-links a {
+    color: #ffffff;
+}
